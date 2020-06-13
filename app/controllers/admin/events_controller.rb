@@ -1,5 +1,9 @@
 module Admin
   class EventsController < Admin::AdminController
+    def index
+      @pagy, @events = pagy(Event.all)
+    end
+
     def new
       @event = Event.new
     end
@@ -16,7 +20,7 @@ module Admin
     private
 
     def event_params
-      params.require(:event).permit(:description, :classification, :metadata, geocode: [])
+      params.require(:event).permit(:description, :classification, :metadata, :priority, geocode: [])
     end
   end
 end

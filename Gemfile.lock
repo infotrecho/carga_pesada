@@ -88,9 +88,6 @@ GEM
     dry-inflector (0.2.0)
     erubi (1.9.0)
     ffi (1.13.1)
-    geared_pagination (1.0.1)
-      activesupport (>= 5.0)
-      addressable (>= 2.5.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     htmlentities (4.3.4)
@@ -117,6 +114,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    pagy (3.8.2)
     pg (1.2.3)
     platform_agent (1.0.1)
       activesupport (>= 5.2.0)
@@ -257,9 +255,9 @@ DEPENDENCIES
   awesome_print
   bootsnap (>= 1.4.2)
   capybara (>= 2.15)
-  geared_pagination
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  pagy
   pg (>= 0.18, < 2.0)
   platform_agent
   pry
@@ -279,7 +277,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
-  tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)

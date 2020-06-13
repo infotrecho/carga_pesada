@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   namespace :admin do
-    resources :events, only: [:new, :create]
+    resources :events, only: [:index, :new, :create]
   end
 
   namespace :driver do

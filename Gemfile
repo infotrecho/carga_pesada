@@ -54,11 +54,9 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 gem 'ransack'
 gem 'platform_agent'
-gem 'geared_pagination'
+gem 'pagy'
 gem 'spreadsheet_architect'
 group :production do
   gem 'redis'

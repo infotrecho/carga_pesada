@@ -9,6 +9,7 @@
     <%= form.input :geocode, label: "Latitude", input_html: { multiple: true, value: @event.latitude } %>
     <%= form.input :geocode, label: "Longitude", input_html: { multiple: true, value: @event.longitude } %>
     <%= form.input :metadata %>
+    <%= form.input :priority %>
     <%= form.button :submit, class: "btn btn-primary" %>
   <% end %>
 </section>
