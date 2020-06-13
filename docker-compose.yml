@@ -1,0 +1,80 @@
+version: "3.6"
+services:
+  carga_pesada:
+    image: carga_pesada
+    build:
+      context: .
+    container_name: carga_pesada
+    hostname: carga_pesada
+    environment:
+      - RAILS_ENV=development
+      - WEBPACKER_DEV_SERVER_HOST=webpack
+      - DATABASE_URL=postgres://postgres:postgres@db/
+    volumes:
+      - .:/carga_pesada:delegated
+      - /carga_pesada/node_modules
+      - gems:/home/carga_pesada:delegated
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - gems
+      - webpack
+    links:
+      - db
+    networks:
+      - default
+
+  webpack:
+    image: carga_pesada
+    container_name: carga_pesada-webpack
+    environment:
+      - RAILS_ENV=development
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+      - DATABASE_URL=postgres://postgres:postgres@db/
+    volumes:
+      - .:/carga_pesada:delegated
+      - /carga_pesada/node_modules
+      - gems:/home/carga_pesada:delegated
+    ports:
+      - "3035:3035"
+    depends_on:
+      - db
+      - gems
+    links:
+      - db
+    networks:
+      - default
+    command: bin/webpack-dev-server
+
+  gems:
+    image: busybox:latest
+    volumes:
+      - /gems
+
+  db:
+    image: postgres:12.3-alpine
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+    volumes:
+      - pg-data:/var/lib/postgresql:delegated
+    ports:
+      - "5432:5432"
+    networks:
+      - default
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+networks:
+  default:
+    driver: bridge
+    name: carga_pesada
+
+volumes:
+  gems:
+  pg-data:
+  node_modules:
