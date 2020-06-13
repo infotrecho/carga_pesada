@@ -33,3 +33,5 @@ require("vendors/stisla/scripts")
 require("app").start()
 
 import "controllers"
+
+import "./dynamicMap"
