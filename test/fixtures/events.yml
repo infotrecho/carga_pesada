@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  geocode: MyString
+  description: MyText
+  type: 
+  metadata: 
+  priority: 1
+
+two:
+  geocode: MyString
+  description: MyText
+  type: 
+  metadata: 
+  priority: 1

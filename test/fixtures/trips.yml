@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origin: MyString
+  destination: MyString
+  origin_geocode: MyString
+  destination_geocode: MyString
+  driver: one
+
+two:
+  origin: MyString
+  destination: MyString
+  origin_geocode: MyString
+  destination_geocode: MyString
+  driver: two
