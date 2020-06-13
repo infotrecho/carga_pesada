@@ -1,5 +1,5 @@
 module Admin
-  class EventsController < ApplicationController
+  class EventsController < Admin::AdminController
     def new
       @event = Event.new
     end
