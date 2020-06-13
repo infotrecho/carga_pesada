@@ -11,7 +11,7 @@ module Admin
     def create
       @event = Event.new(event_params)
       if @event.save
-        redirect_to root_path, notice: "Evento salvo com successo"
+        redirect_to admin_events_path, notice: "Evento salvo com successo"
       else
         render :new
       end
