@@ -6,6 +6,7 @@ module Admin
 
     def new
       @trip = Trip.new
+      @drivers = Driver.all
     end 
 
     def create
@@ -20,7 +21,7 @@ module Admin
     private 
 
     def trip_params
-      params.require(:trip).permit()
+      params.require(:trip).permit(:driver_id, :origin, :destination, origin_geocode: [], destination_geocode: [])
     end
   end
 end

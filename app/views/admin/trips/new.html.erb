@@ -4,6 +4,14 @@
   </div>
 
   <%= simple_form_for([:admin, @trip]) do |form| %>
+    <%= form.input :driver_id, collection: @drivers%>
+    <%= form.input :origin %>
+    <%= form.input :origin_geocode, label: "Latitude da Origem", input_html: { multiple: true, value: @trip.origin_latitude } %>
+    <%= form.input :origin_geocode, label: "Longitude da Origem", input_html: { multiple: true, value: @trip.origin_longitude } %>
+    <%= form.input :destination %>
+    <%= form.input :destination_geocode, label: "Latitude do Destino", input_html: { multiple: true, value: @trip.destination_latitude } %>
+    <%= form.input :destination_geocode, label: "Longitude do Destino", input_html: { multiple: true, value: @trip.destination_longitude } %>
+    <%= form.button :submit, class: "btn btn-primary" %>
   <% end %>
 </section>
 
