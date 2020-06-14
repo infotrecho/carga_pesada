@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
+    resources :drivers, only: [:create]
   end
 end
