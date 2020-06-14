@@ -1,0 +1,13 @@
+<section class="section">
+  <div class="section-header d-mobile-none">
+    <h1>Novo Motorista</h1>
+  </div>
+
+  <%= simple_form_for([:admin, @driver]) do |form| %>
+    <%= form.input :name %>
+    <%= form.input :phone %>
+    <%= form.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</section>
+
+<% content_for(:page_title, "Novo Motorista") %>
