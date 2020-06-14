@@ -28,6 +28,13 @@
         </li>
       <% end %>
 
+      <%= render 'shared/sidebar_dropdown', title: 'Percursos', icon: 'fas fa-road' do %>
+        <li class="<%= active_nav_item('admin/trips', crud_actions) %>">
+          <%= link_to "Novo", new_admin_trip_path, class: "nav-link" %>
+          <%= link_to "Listar", admin_trips_path, class: "nav-link" %>
+        </li>
+      <% end %>
+
       <li class="menu-header">Controllers</li>
       <%= render 'shared/sidebar_dropdown', title: 'Resources', icon: 'fas fa-file-alt' do %>
       <!--

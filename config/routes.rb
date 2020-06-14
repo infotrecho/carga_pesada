@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :events, only: [:index, :new, :create]
     resources :points, only: [:index]
     resources :drivers, only: [:index, :new, :create]
+    resources :trips, only: [:index, :new, :create]
   end
 
   namespace :driver do

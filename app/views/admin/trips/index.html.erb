@@ -1,6 +1,6 @@
 <section class="section">
   <div class="section-header d-mobile-none">
-    <h1>Motoristas</h1>
+    <h1>Percursos</h1>
   </div>
 
   <div class="card">
@@ -9,13 +9,15 @@
         <table class="table table-bordered table-md">
           <tr>
             <th>#ID</th>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Messenger ID</th>
-            <th>Verificado?</th>
+            <th>Motorista</th>
+            <th>Origem</th>
+            <th>Geocode de Origem</th>
+            <th>Destino</th>
+            <th>Geocode de Destino</th>
+            <th>Data de criação</th>
           </tr>
 
-          <%= render @drivers %>
+          <%= render @trips %>
         </table>
       </div>
     </div>
@@ -25,4 +27,4 @@
 
 </section>
 
-<% content_for(:page_title, "Motoristas") %>
+<% content_for(:page_title, "Percursos") %>
