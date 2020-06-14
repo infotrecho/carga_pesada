@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: carga_pesada_production
-  username: carga_pesada
-  password: <%= ENV['CARGA_PESADA_DATABASE_PASSWORD'] %>
+  url: <%= ENV.fetch('DATABASE_URL', '').sub(/^postgres/, "postgis") %>
