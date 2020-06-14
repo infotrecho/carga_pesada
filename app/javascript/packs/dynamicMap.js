@@ -19,7 +19,9 @@ function initMap() {
       success: function(data) {
         data.forEach(function(point) {
           var geocode = point.geocode
-          var latLng = new google.maps.LatLng(geocode[0], geocode[1]);
+          console.log(point.geocode)
+          var latLng = new google.maps.LatLng(point.latitude, point.longitude);
+          console.log(latLng)
 
           var marker = new google.maps.Marker({
             position: latLng,

@@ -6,8 +6,10 @@
   <%= simple_form_for([:admin, @event]) do |form| %>
     <%= form.input :description %>
     <%= form.input :classification, collection: Event::CLASSIFICATIONS %>
-    <%= form.input :geocode, label: "Latitude", input_html: { multiple: true, value: @event.latitude } %>
-    <%= form.input :geocode, label: "Longitude", input_html: { multiple: true, value: @event.longitude } %>
+    <!-- <%= form.input :geocode, label: "Latitude", input_html: { multiple: true, value: @event.latitude } %>
+    <%= form.input :geocode, label: "Longitude", input_html: { multiple: true, value: @event.longitude } %> -->
+    <%= form.input :latitude, label: "Latitude" %>
+    <%= form.input :longitude, label: "Longitude" %>
     <%= form.input :metadata %>
     <%= form.input :priority %>
     <%= form.button :submit, class: "btn btn-primary" %>

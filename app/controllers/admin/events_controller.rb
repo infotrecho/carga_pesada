@@ -20,7 +20,7 @@ module Admin
     private
 
     def event_params
-      params.require(:event).permit(:description, :classification, :metadata, :priority, geocode: [])
+      params.require(:event).permit(:description, :classification, :metadata, :priority, :latitude, :longitude)
     end
   end
 end

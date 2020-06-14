@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_14_060132) do
+ActiveRecord::Schema.define(version: 2020_06_14_172426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "drivers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
@@ -27,13 +28,15 @@ ActiveRecord::Schema.define(version: 2020_06_14_060132) do
   end
 
   create_table "events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "geocode", null: false, array: true
+    t.string "geocode", array: true
     t.text "description", null: false
     t.string "classification", null: false
     t.json "metadata"
     t.integer "priority", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.geography "geocode_point", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.index ["geocode_point"], name: "index_events_on_geocode_point", using: :gist
   end
 
   create_table "notifications", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -49,12 +52,16 @@ ActiveRecord::Schema.define(version: 2020_06_14_060132) do
   create_table "trips", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "origin", null: false
     t.string "destination", null: false
-    t.string "origin_geocode", null: false, array: true
-    t.string "destination_geocode", null: false, array: true
+    t.string "origin_geocode", array: true
+    t.string "destination_geocode", array: true
     t.uuid "driver_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.geography "origin_geocode_point", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.geography "destination_geocode_point", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.index ["destination_geocode_point"], name: "index_trips_on_destination_geocode_point", using: :gist
     t.index ["driver_id"], name: "index_trips_on_driver_id"
+    t.index ["origin_geocode_point"], name: "index_trips_on_origin_geocode_point", using: :gist
   end
 
   add_foreign_key "notifications", "events"

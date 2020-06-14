@@ -26,6 +26,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 gem 'simple_form'
 
+gem 'activerecord-postgis-adapter', github: "electric-feel/activerecord-postgis-adapter", branch: "initialize_type_map-fix"
+gem 'googlemaps-services'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
