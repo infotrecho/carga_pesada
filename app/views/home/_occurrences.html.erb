@@ -1,0 +1,7 @@
+<% occurrences.each do |event| %>
+  <tr>
+    <td><%= event.description %></td>
+    <td><%= l(event.created_at) %></td>
+    <td><div class="badge <%= event_badge(event) %>"><%= event.classification %></div></td>
+  </tr>
+<% end %>
