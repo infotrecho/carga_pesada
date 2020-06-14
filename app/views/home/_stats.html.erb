@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-danger">
+        <i class="fa fa-2x fa-car-crash"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Acidentes</h4>
+        </div>
+        <div class="card-body">
+          <%= @stats.accident || 0 %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-danger">
+        <i class="fa fa-2x fa-user-secret"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Assaltos</h4>
+        </div>
+        <div class="card-body">
+          <%= @stats.safety || 0 %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-warning">
+        <i class="fa fa-2x fa-warning"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Perigos</h4>
+        </div>
+        <div class="card-body">
+          <%= @stats.hazard || 0 %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+    <div class="card card-statistic-1">
+      <div class="card-icon bg-info">
+        <i class="fa fa-2x fa-road"></i>
+      </div>
+      <div class="card-wrap">
+        <div class="card-header">
+          <h4>Consruções</h4>
+        </div>
+        <div class="card-body">
+          <%= @stats.road_construction || 0 %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

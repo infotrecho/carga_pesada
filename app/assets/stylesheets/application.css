@@ -68,3 +68,5 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 /** HIDE-SPINNERS-END **/
+
+*.fa {color: white}
