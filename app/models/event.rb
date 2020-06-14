@@ -3,6 +3,10 @@ class Event < ApplicationRecord
 
   default_scope { order(created_at: :desc) }
 
+  scope :near, ->(latitude, longitude, distance_in_km = 50) {
+    where("ST_Distance(geocode_point, 'POINT(? ?)') < ?", longitude, latitude, distance_in_km * 1_000)
+  }
+
   has_many :notifications
 
   validates :description, presence: true
