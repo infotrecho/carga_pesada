@@ -6,6 +6,7 @@
   <%= simple_form_for([:admin, @driver]) do |form| %>
     <%= form.input :name %>
     <%= form.input :phone %>
+    <%= form.input :messenger_id %>
     <%= form.button :submit, class: "btn btn-primary" %>
   <% end %>
 </section>
